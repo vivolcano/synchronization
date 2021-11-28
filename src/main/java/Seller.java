@@ -15,8 +15,8 @@ class Seller {
             }
             int waitingTime = 3500;
             Thread.sleep(waitingTime);
-            System.out.println(Thread.currentThread().getName() + " уехал на новенькой машине, удачи!"
-                    + store.getAuto().get(0));
+            System.out.println(Thread.currentThread().getName() + " уехал на новенькой машине "
+                    + store.getAuto().get(0) + "! Удачи ему!");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
