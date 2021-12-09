@@ -26,7 +26,6 @@ class Seller {
                     + store.getAuto().get(0) + "! Удачи ему!");
 
             store.getAuto().remove(0);
-            CONDITION.signalAll();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -40,11 +39,10 @@ class Seller {
     public void makeCar() {
         try {
             LOCK.lock();
-            while (store.getAuto().isEmpty()) {
+            while (store.getAuto().size() == 0) {
                 System.out.println(Thread.currentThread().getName() + " выпустил 1 авто!");
                 store.getAuto().add(new Car());
                 CONDITION.signal();
-                CONDITION.await();
             }
             int timeToMakeNewCar = 2500;
             Thread.sleep(timeToMakeNewCar);
